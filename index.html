@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Eduardo Jovanini | Portfólio</title>
+</head>
+
+<body>
+
+    <!-- Aqui que fica a class que chama na animação -->
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+        <img src="img/eu.jpg" alt="Foto de Eduardo Jovanini" class="foto-perfil">
+        <h1>Eduardo Jovanini</h1>
+        <p class="cabecalho-sub-titulo">Técnico de TI | Apaixonado por tecnologia</p>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Olá! Meu nome é Eduardo, sou apaixonado por tecnologia desde cedo e sempre fui movido pela curiosidade
+                em entender como as coisas funcionam. Gosto de explorar o mundo da segurança da informação, resolver
+                problemas complexos e enfrentar desafios como verdadeiros quebra-cabeças daqueles que exigem
+                paciência, lógica e criatividade. Fora do mundo da tecnologia, sou fã de rock, adoro jogar nas
+                horas vagas e me envolver com tudo que estimule o raciocínio. Estou sempre em busca de aprender algo
+                novo e crescer como profissional e pessoa. Acredito que a combinação entre conhecimento técnico e paixão
+                pelo que se faz é o que realmente faz a diferença.
+            </p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+            <!-- Projeto 1 -->
+            <div class="projetos-card">
+                <img src="img/projeto1.png" alt="Projeto 1" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">HelpDesk</h3>
+                    <p class="paragrafo-projetos">Um sistema de suporte técnico para empresas, facilitando a comunicação
+                        entre usuários e a equipe de TI.</p>
+                </div>
+            </div>
+            <!-- Projeto 2 virá aqui -->
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h3 class="contato-subtitulo">Meu GitHub</h3>
+        <p><a href="https://github.com/eduardojovanini/" target="_blank" class="contato-paragrafo">GitHub</a></p>
+        <h3 class="contato-subtitulo">Meu LinkedIn</h3>
+        <p><a href="https://linkedin.com/in/eduardojovanini" target="_blank" class="contato-paragrafo">LinkedIn</a></p>
+        <h2 class="contato-titulo">Entre em Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="6" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+    </section>
+
+<!-- Implementação de JavaScript para lidar com mensagem do formulário para formar e formatar URL de contato do WhatsApp -->
+    <script>
+
+        function enviarWhats(event) {
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5511953043035';
+
+            const texto = `Olá Eduardo! Me chamo ${nome}, ${mensagem}`;
+            // Formata a mensagem para ser usada na URL
+            const msgFormatada = encodeURIComponent(texto);
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+            window.open(url, '_blank');
+        }
+
+    </script>
+</body>
+
+</html>
